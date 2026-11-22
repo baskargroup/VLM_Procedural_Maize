@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Maize leaf mark">
+  <rect width="64" height="64" rx="16" fill="#0c2114"/>
+  <path d="M32 51V15" fill="none" stroke="#f0cf73" stroke-width="4" stroke-linecap="round"/>
+  <path d="M32 25C23 15 13 17 11 20c2 10 11 15 21 13" fill="#4d9664"/>
+  <path d="M32 33c9-10 19-8 21-5-2 10-11 15-21 13" fill="#76aa74"/>
+  <path d="M32 41c-7-7-14-5-16-3 2 7 8 10 16 9" fill="#2f7749"/>
+</svg>

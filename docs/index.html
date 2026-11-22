@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#163522">
+  <meta name="description" content="A VLM-based pipeline that converts field-grown maize point clouds into organ-level segmentations, editable procedural models, and refined NURBS geometry.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VLM-based Procedural Modeling of Field-Grown Maize">
+  <meta property="og:description" content="From raw 3D point clouds to editable, fitted NURBS plant models.">
+  <meta property="og:image" content="assets/images/social-card.png">
+  <meta property="og:url" content="https://baskargroup.github.io/VLM_3Dprocedural_maize/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="citation_title" content="A Vision-Language Model (VLM)-based Pipeline for End-to-End Procedural Modeling of Field-Grown Maize from Point Clouds">
+  <meta name="citation_author" content="Mozhgan Hadadi">
+  <meta name="citation_author" content="Talukder Z. Jubery">
+  <meta name="citation_author" content="Adarsh Krishnamurthy">
+  <meta name="citation_author" content="Baskar Ganapathysubramanian">
+  <meta name="citation_publication_date" content="2026/10/02">
+  <meta name="citation_arxiv_id" content="2610.03468">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2610.03468">
+  <title>VLM-based Procedural Modeling of Field-Grown Maize</title>
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "name": "A Vision-Language Model (VLM)-based Pipeline for End-to-End Procedural Modeling of Field-Grown Maize from Point Clouds",
+    "author": [
+      {"@type": "Person", "name": "Mozhgan Hadadi"},
+      {"@type": "Person", "name": "Talukder Z. Jubery"},
+      {"@type": "Person", "name": "Adarsh Krishnamurthy"},
+      {"@type": "Person", "name": "Baskar Ganapathysubramanian"}
+    ],
+    "affiliation": {"@type": "CollegeOrUniversity", "name": "Iowa State University"},
+    "datePublished": "2026-10-02",
+    "identifier": "arXiv:2610.03468",
+    "url": "https://arxiv.org/abs/2610.03468",
+    "sameAs": "https://baskargroup.github.io/VLM_3Dprocedural_maize/"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="nav-shell">
+      <a class="wordmark" href="#top" aria-label="Project home">
+        <span class="wordmark-mark" aria-hidden="true">M</span>
+        <span>VLM → Maize 3D</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#method">Method</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#results">Results</a>
+        <a href="#authors">Authors</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="venue">Research project · Iowa State University</p>
+        <h1>A Vision-Language Model Pipeline for End-to-End Procedural Modeling of Field-Grown Maize</h1>
+        <p class="dek">
+          Raw point clouds become organ-level segmentations, editable procedural
+          plant models, and scan-fitted NURBS geometry.
+        </p>
+
+        <div class="author-line" aria-label="Paper authors">
+          <a href="https://orcid.org/0009-0008-5580-2808">Mozhgan Hadadi</a>
+          <a href="https://trac-ai.iastate.edu/profiles/zaki/">Talukder Z. Jubery</a>
+          <a href="https://www.engineering.iastate.edu/people/profile/adarsh/">Adarsh Krishnamurthy</a>
+          <a href="https://www.engineering.iastate.edu/people/profile/baskarg/">Baskar Ganapathysubramanian</a>
+        </div>
+        <p class="affiliation">Iowa State University · Department of Mechanical Engineering · Translational AI Center · Plant Science Institute</p>
+
+        <div class="publication-links" aria-label="Publication resources">
+          <a class="resource-button" href="https://arxiv.org/pdf/2610.03468" aria-label="Read the paper PDF on arXiv">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6zM14 2v5h5M9 12h6M9 16h6"/></svg>
+            Paper <small>PDF</small>
+          </a>
+          <a class="resource-button" href="https://arxiv.org/abs/2610.03468" aria-label="Read the arXiv preprint">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 19 12 5l5 14M9 14h6"/></svg>
+            arXiv <small>2610.03468</small>
+          </a>
+          <span class="resource-button is-pending" aria-label="Code will be released upon acceptance">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg>
+            Code <small>upon acceptance</small>
+          </span>
+          <a class="resource-button" href="https://doi.org/10.1016/j.plaphe.2025.100108">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg>
+            Dataset
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="teaser section-shell" aria-labelledby="teaser-title">
+      <h2 class="sr-only" id="teaser-title">Pipeline overview</h2>
+      <figure class="teaser-frame">
+        <img src="assets/images/pipeline-overview.png"
+             alt="The pipeline progresses from a raw maize point cloud through multi-view VLM annotation, consensus and full-leaf segmentation, a procedural plant model, and fitted NURBS geometry."
+             width="2400" height="780" fetchpriority="high">
+        <figcaption>One fixed pipeline transforms unstructured field scans into editable, analysis-ready geometry.</figcaption>
+      </figure>
+    </section>
+
+    <section class="metric-band" aria-label="Headline results">
+      <div class="section-shell metric-grid">
+        <div><strong>100</strong><span>field-grown plants</span></div>
+        <div><strong>1,072</strong><span>reconstructed leaves</span></div>
+        <div><strong>99.4%</strong><span>curated leaves recovered</span></div>
+        <div><strong>5.4 mm</strong><span>median whole-plant Chamfer</span></div>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="overview">
+      <div class="section-heading">
+        <p class="kicker">Overview</p>
+        <h2>Editable plant geometry without species-specific training labels</h2>
+      </div>
+      <div class="two-column-copy">
+        <p class="lead">
+          Building useful 3D crop models from scans requires more than a mesh:
+          leaves must be identified, measured, and represented as editable
+          surfaces. This pipeline uses a multimodal VLM only to annotate sparse
+          leaf evidence in rendered views. Deterministic geometry carries the
+          reconstruction from those images to the final plant model.
+        </p>
+        <p>
+          Cross-view consensus merges the annotations into physical leaf
+          identities. A surface-graph workflow grows each identity over its
+          full blade, measured traits populate a procedural plant descriptor,
+          and differentiable NURBS fitting refines every leaf against its scan
+          points while preserving its attachment to the stalk.
+        </p>
+      </div>
+      <aside class="scope-note">
+        <strong>Reproducible execution.</strong>
+        The released scientific path is a fixed stage sequence with recorded
+        parameters, input fingerprints, artifact contracts, and per-stage
+        checksums.
+      </aside>
+    </section>
+
+    <section class="content-section method-section" id="method">
+      <div class="section-shell">
+        <div class="section-heading">
+          <p class="kicker">Method</p>
+          <h2>From pixels to fitted surfaces</h2>
+          <p>Each stage has an explicit input/output contract and can be resumed from validated artifacts.</p>
+        </div>
+        <ol class="method-flow">
+          <li>
+            <span class="step-number">01</span>
+            <h3>Normalize &amp; render</h3>
+            <p>Align the scan, shift the stalk base, and create eight orthographic views.</p>
+            <span class="step-tags">Point cloud · 8 views</span>
+          </li>
+          <li>
+            <span class="step-number">02</span>
+            <h3>VLM annotation</h3>
+            <p>Mark leaf midlines, attachment points, and the visible stalk in image space.</p>
+            <span class="step-tags">Zero-shot · Multiview</span>
+          </li>
+          <li>
+            <span class="step-number">03</span>
+            <h3>3D consensus</h3>
+            <p>Back-project view evidence and reconcile it into one identity per physical leaf.</p>
+            <span class="step-tags">Geometry · Identity</span>
+          </li>
+          <li>
+            <span class="step-number">04</span>
+            <h3>Full-blade segmentation</h3>
+            <p>Grow sparse midlines over the surface graph and resolve point ownership.</p>
+            <span class="step-tags">Graph growth · QC</span>
+          </li>
+          <li>
+            <span class="step-number">05</span>
+            <h3>Procedural model</h3>
+            <p>Measure organ traits and generate an editable PPG plant from the descriptor.</p>
+            <span class="step-tags">Traits · NURBS</span>
+          </li>
+          <li>
+            <span class="step-number">06</span>
+            <h3>Differentiable fitting</h3>
+            <p>Optimize each leaf surface to its scan points with attachment and orientation safeguards.</p>
+            <span class="step-tags">PyTorch · Export</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="content-section gallery-section" id="gallery">
+      <div class="section-shell">
+        <div class="section-heading heading-with-control">
+          <div>
+            <p class="kicker">Ten reported examples</p>
+            <h2>Genotypically diverse reconstructions</h2>
+            <p>Blender turntables align the scan, midlines, leaf segmentation, procedural model, and refined surface for every reported plant.</p>
+          </div>
+          <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">
+            Pause animations
+          </button>
+        </div>
+
+        <div class="plant-gallery">
+          <figure class="plant-card">
+            <img src="assets/media/9009.gif" data-animated="assets/media/9009.gif" data-poster="assets/media/posters/9009.webp" alt="Rotating reconstruction of the M162W genotype." loading="lazy">
+            <figcaption><strong>M162W</strong><span>15 reconstructed leaves</span></figcaption>
+          </figure>
+          <figure class="plant-card">
+            <img src="assets/media/9005.gif" data-animated="assets/media/9005.gif" data-poster="assets/media/posters/9005.webp" alt="Rotating reconstruction of the CML69 genotype." loading="lazy">
+            <figcaption><strong>CML69</strong><span>15 reconstructed leaves</span></figcaption>
+          </figure>
+          <figure class="plant-card">
+            <img src="assets/media/9008.gif" data-animated="assets/media/9008.gif" data-poster="assets/media/posters/9008.webp" alt="Rotating reconstruction of the Kui2021 genotype." loading="lazy">
+            <figcaption><strong>Kui2021</strong><span>12 reconstructed leaves</span></figcaption>
+          </figure>
+          <figure class="plant-card">
+            <img src="assets/media/9006.gif" data-animated="assets/media/9006.gif" data-poster="assets/media/posters/9006.webp" alt="Rotating reconstruction of the CML238 genotype." loading="lazy">
+            <figcaption><strong>CML238</strong><span>12 reconstructed leaves</span></figcaption>
+          </figure>
+          <figure class="plant-card">
+            <img src="assets/media/9007.gif" data-animated="assets/media/9007.gif" data-poster="assets/media/posters/9007.webp" alt="Rotating reconstruction of the CML331 genotype." loading="lazy">
+            <figcaption><strong>CML331</strong><span>12 reconstructed leaves</span></figcaption>
+          </figure>
+          <figure class="plant-card">
+            <img src="assets/media/9000.gif" data-animated="assets/media/9000.gif" data-poster="assets/media/posters/9000.webp" alt="Rotating reconstruction of the 4226 genotype." loading="lazy">
+            <figcaption><strong>4226</strong><span>12 reconstructed leaves</span></figcaption>
+          </figure>
+          <figure class="plant-card">
+            <img src="assets/media/0335.gif" data-animated="assets/media/0335.gif" data-poster="assets/media/posters/0335.webp" alt="Rotating reconstruction of the 78551S genotype." loading="lazy">
+            <figcaption><strong>78551S</strong><span>8 reconstructed leaves</span></figcaption>
+          </figure>
+          <figure class="plant-card">
+            <img src="assets/media/9002.gif" data-animated="assets/media/9002.gif" data-poster="assets/media/posters/9002.webp" alt="Rotating reconstruction of the A679 genotype." loading="lazy">
+            <figcaption><strong>A679</strong><span>8 reconstructed leaves</span></figcaption>
+          </figure>
+          <figure class="plant-card">
+            <img src="assets/media/9004.gif" data-animated="assets/media/9004.gif" data-poster="assets/media/posters/9004.webp" alt="Rotating reconstruction of the CI90C genotype." loading="lazy">
+            <figcaption><strong>CI90C</strong><span>10 reconstructed leaves</span></figcaption>
+          </figure>
+          <figure class="plant-card">
+            <img src="assets/media/9011.gif" data-animated="assets/media/9011.gif" data-poster="assets/media/posters/9011.webp" alt="Rotating reconstruction of the T8 genotype." loading="lazy">
+            <figcaption><strong>T8</strong><span>14 reconstructed leaves</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="results">
+      <div class="section-heading">
+        <p class="kicker">Results</p>
+        <h2>Geometry improves consistently after leaf-wise fitting</h2>
+      </div>
+      <div class="results-layout">
+        <figure class="result-figure">
+          <img src="assets/images/nurbs-improvement.png"
+               alt="Bar chart showing mean target-to-surface RMS reduction for each of the ten reported plants, ranging from about 45 to 62 percent."
+               loading="lazy">
+          <figcaption>Mean target-to-surface RMS reduction after exported NURBS fitting for the ten examples.</figcaption>
+        </figure>
+        <div class="result-points">
+          <article>
+            <strong>1,017 / 1,023</strong>
+            <h3>Reference leaves recovered</h3>
+            <p>Curated leaves matched at intersection-over-union ≥ 0.5 without using those labels as pipeline input.</p>
+          </article>
+          <article>
+            <strong>99 / 100</strong>
+            <h3>Plants improved over the prior workflow</h3>
+            <p>The final reconstructions were closer to their scans than the earlier semi-automated PSO + NURBS-Diff models.</p>
+          </article>
+          <article>
+            <strong>5.4 mm</strong>
+            <h3>Median whole-plant Chamfer</h3>
+            <p>Measured over 100 field-grown maize scans spanning a diversity panel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section availability-section">
+      <div class="section-shell availability-card">
+        <div>
+          <p class="kicker">Availability</p>
+          <h2>Paper and code release</h2>
+          <p>
+            The preprint is available on
+            <a href="https://arxiv.org/abs/2610.03468">arXiv</a>. The journal
+            link will be added when available. The implementation is currently
+            maintained in a private repository and will be shared upon
+            acceptance.
+          </p>
+        </div>
+        <a class="dataset-link" href="https://doi.org/10.1016/j.plaphe.2025.100108">
+          Explore MaizeField3D
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="content-section section-shell" id="authors">
+      <div class="section-heading">
+        <p class="kicker">Authors</p>
+        <h2>Research team</h2>
+      </div>
+      <div class="author-grid">
+        <article class="author-card">
+          <img src="assets/images/authors/mozhgan-hadadi.webp" alt="Mozhgan Hadadi" loading="lazy">
+          <h3>Mozhgan Hadadi</h3>
+          <p>Mechanical Engineering</p>
+          <a href="https://orcid.org/0009-0008-5580-2808">ORCID <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="author-card">
+          <img src="assets/images/authors/talukder-jubery.webp" alt="Talukder Z. Jubery" loading="lazy">
+          <h3>Talukder Z. Jubery</h3>
+          <p>Translational AI Center</p>
+          <a href="https://trac-ai.iastate.edu/profiles/zaki/">Profile <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="author-card">
+          <img src="assets/images/authors/adarsh-krishnamurthy.webp" alt="Adarsh Krishnamurthy" loading="lazy">
+          <h3>Adarsh Krishnamurthy</h3>
+          <p>Mechanical Engineering</p>
+          <a href="https://www.engineering.iastate.edu/people/profile/adarsh/">Profile <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="author-card">
+          <img src="assets/images/authors/baskar-ganapathysubramanian.webp" alt="Baskar Ganapathysubramanian" loading="lazy">
+          <h3>Baskar Ganapathysubramanian</h3>
+          <p>Mechanical Engineering</p>
+          <a href="https://www.engineering.iastate.edu/people/profile/baskarg/">Profile <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section citation-section" id="citation">
+      <div class="section-shell citation-layout">
+        <div>
+          <p class="kicker">Citation</p>
+          <h2>Preprint citation</h2>
+          <p>Cite the arXiv preprint below; the final journal record will replace it after publication.</p>
+        </div>
+        <div class="citation-box">
+          <button id="copy-citation" type="button">Copy BibTeX</button>
+          <pre><code id="bibtex">@article{hadadi_vlm_maize,
+  title   = {A Vision-Language Model (VLM)-based Pipeline for
+             End-to-End Procedural Modeling of Field-Grown Maize
+             from Point Clouds},
+  author  = {Hadadi, Mozhgan and Jubery, Talukder Z. and
+             Krishnamurthy, Adarsh and
+             Ganapathysubramanian, Baskar},
+  year    = {2026},
+  eprint  = {2610.03468},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  doi     = {10.48550/arXiv.2610.03468},
+  url     = {https://arxiv.org/abs/2610.03468}
+}</code></pre>
+          <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="section-shell footer-inner">
+      <p><strong>VLM → Maize 3D</strong><br>Iowa State University</p>
+      <p>Project page for research use. <a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
